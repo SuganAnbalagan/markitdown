@@ -15,43 +15,31 @@
 
 <div class="container">
 
-    <!-- Upload Card -->
-
     <div class="glass-card">
 
         <div class="hero">
             <h1>MarkItDown</h1>
-            <div class="subtitle">
-                by Microsoft
-            </div>
+            <div class="subtitle">by Microsoft</div>
         </div>
 
         <div id="dropzone">
 
-            <div class="drop-icon">
-                ⬆
-            </div>
-
-            <div class="drop-title">
+            <label for="fileInput" class="upload-button">
                 Upload Document
-            </div>
+            </label>
 
-            <div class="drop-subtitle">
-                Drag & Drop or Tap to Browse
-            </div>
+            <input
+                id="fileInput"
+                type="file"
+                hidden
+            >
 
-            <input id="fileInput" type="file">
-
-            <div id="selectedFile">
-                No file selected
-            </div>
-
-            <div id="fileMeta"></div>
+            <div id="selectedFile"></div>
 
         </div>
 
         <button id="convertBtn">
-            Convert to Markdown
+            Convert
         </button>
 
         <div id="progressContainer">
@@ -63,8 +51,6 @@
         </div>
 
     </div>
-
-    <!-- Output Card -->
 
     <div class="glass-card">
 
@@ -79,7 +65,7 @@
                 </button>
 
                 <button id="downloadBtn">
-                    Download .md
+                    Download
                 </button>
 
             </div>
