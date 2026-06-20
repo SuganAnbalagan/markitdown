@@ -1,7 +1,6 @@
-from fastapi import FastAPI, UploadFile, File, Request
-from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi import FastAPI, UploadFile, File
+from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
-from fastapi.templating import Jinja2Templates
 from markitdown import MarkItDown
 
 import tempfile
@@ -11,15 +10,10 @@ app = FastAPI(title="MarkItDown")
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-templates = Jinja2Templates(directory="templates")
 
-
-@app.get("/", response_class=HTMLResponse)
-async def home(request: Request):
-    return templates.TemplateResponse(
-        "index.html",
-        {"request": request}
-    )
+@app.get("/")
+async def home():
+    return FileResponse("templates/index.html")
 
 
 @app.post("/convert")
@@ -34,10 +28,20 @@ async def convert(file: UploadFile = File(...)):
         md = MarkItDown()
         result = md.convert(temp_path)
 
-        return JSONResponse({
-            "filename": file.filename,
-            "markdown": result.text_content
-        })
+        return JSONResponse(
+            {
+                "filename": file.filename,
+                "markdown": result.text_content,
+            }
+        )
+
+    except Exception as e:
+        return JSONResponse(
+            {
+                "error": str(e)
+            },
+            status_code=500,
+        )
 
     finally:
         if os.path.exists(temp_path):
