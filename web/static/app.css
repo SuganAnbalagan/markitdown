@@ -1,7 +1,6 @@
 :root{
     --glass:rgba(255,255,255,.08);
-    --border:rgba(255,255,255,.15);
-    --text:#ffffff;
+    --border:rgba(255,255,255,.14);
 }
 
 *{
@@ -10,15 +9,10 @@
     box-sizing:border-box;
 }
 
-html,
-body{
-    min-height:100%;
-}
-
 body{
     font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
+    color:#fff;
     background:#071026;
-    color:var(--text);
     overflow-x:hidden;
 }
 
@@ -28,15 +22,15 @@ body{
     z-index:0;
 
     background:
-        radial-gradient(circle at top left,
-            #6d72ff 0%,
-            transparent 40%),
+    radial-gradient(circle at top left,
+    #6670ff 0%,
+    transparent 40%),
 
-        radial-gradient(circle at bottom right,
-            #00d4ff 0%,
-            transparent 35%),
+    radial-gradient(circle at bottom right,
+    #00d7ff 0%,
+    transparent 35%),
 
-        #071026;
+    #071026;
 }
 
 .container{
@@ -64,8 +58,8 @@ body{
     margin-bottom:24px;
 
     box-shadow:
-        0 20px 60px rgba(0,0,0,.25),
-        inset 0 1px 0 rgba(255,255,255,.1);
+    0 20px 60px rgba(0,0,0,.25),
+    inset 0 1px 0 rgba(255,255,255,.08);
 }
 
 .hero{
@@ -85,86 +79,68 @@ h1{
 }
 
 #dropzone{
-    border:2px dashed rgba(255,255,255,.15);
-
-    border-radius:28px;
-
-    padding:48px 24px;
-
-    text-align:center;
-
-    transition:.25s;
+    margin-top:20px;
 }
 
-#dropzone.dragging{
-    border-color:white;
-    transform:scale(1.01);
-}
+.upload-button{
+    width:100%;
+    height:80px;
 
-.drop-icon{
-    font-size:42px;
-    margin-bottom:12px;
-}
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-.drop-title{
-    font-size:28px;
+    border-radius:24px;
+
+    background:
+    rgba(255,255,255,.06);
+
+    border:
+    1px solid rgba(255,255,255,.12);
+
+    cursor:pointer;
+
+    font-size:24px;
     font-weight:600;
-    margin-bottom:8px;
-}
-
-input[type=file]{
-    margin-top:18px;
 }
 
 #selectedFile{
-    margin-top:18px;
-    font-size:20px;
-}
-
-#fileMeta{
-    margin-top:8px;
-    opacity:.7;
-}
-
-button{
-    border:none;
-    cursor:pointer;
-
-    background:white;
-    color:black;
-
-    border-radius:18px;
-
-    font-size:16px;
-    font-weight:600;
-
-    padding:14px 24px;
-
-    transition:.2s;
-}
-
-button:hover{
-    transform:translateY(-1px);
+    text-align:center;
+    margin-top:16px;
+    opacity:.85;
 }
 
 #convertBtn{
     width:100%;
-    height:60px;
+    height:64px;
+
     margin-top:24px;
+
+    border:none;
+
+    border-radius:20px;
+
+    background:white;
+    color:black;
+
+    font-size:20px;
+    font-weight:700;
+
+    cursor:pointer;
 }
 
 .progress-track{
     margin-top:20px;
 
     width:100%;
-    height:8px;
+    height:6px;
 
     border-radius:999px;
 
     overflow:hidden;
 
     background:
-        rgba(255,255,255,.08);
+    rgba(255,255,255,.08);
 }
 
 #progressBar{
@@ -188,26 +164,48 @@ button:hover{
 
 .actions{
     display:flex;
-    gap:10px;
+    gap:8px;
+}
+
+.actions button{
+    height:42px;
+
+    padding:0 18px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:white;
+    color:black;
+
+    font-size:14px;
+    font-weight:600;
+
+    cursor:pointer;
 }
 
 textarea{
     width:100%;
-
     min-height:600px;
 
     border:none;
 
     border-radius:24px;
 
-    padding:20px;
-
-    resize:vertical;
+    background:
+    rgba(255,255,255,.05);
 
     color:white;
 
-    background:
-        rgba(255,255,255,.05);
+    padding:20px;
+
+    resize:vertical;
+}
+
+textarea::placeholder{
+    color:
+    rgba(255,255,255,.45);
 }
 
 @media(max-width:768px){
@@ -218,8 +216,8 @@ textarea{
 
     .result-header{
         flex-direction:column;
-        gap:16px;
         align-items:flex-start;
+        gap:16px;
     }
 
     .actions{
