@@ -3,12 +3,14 @@ const selectedFile = document.getElementById("selectedFile");
 
 const convertBtn = document.getElementById("convertBtn");
 
-const output = document.getElementById("output");
-
 const progressBar =
 document.getElementById("progressBar");
 
+const resultCard =
+document.getElementById("resultCard");
+
 let currentFilename = "output";
+let markdownContent = "";
 
 fileInput.addEventListener("change", () => {
 
@@ -40,10 +42,10 @@ convertBtn.addEventListener("click", () => {
         file
     );
 
-    output.value = "";
-
     const xhr =
     new XMLHttpRequest();
+
+    progressBar.style.width = "0%";
 
     xhr.upload.onprogress = e => {
 
@@ -80,8 +82,11 @@ convertBtn.addEventListener("click", () => {
         const response =
         JSON.parse(xhr.responseText);
 
-        output.value =
+        markdownContent =
         response.markdown || "";
+
+        resultCard.style.display =
+        "block";
     };
 
     xhr.open(
@@ -97,7 +102,7 @@ document
 .addEventListener("click", async () => {
 
     await navigator.clipboard.writeText(
-        output.value
+        markdownContent
     );
 });
 
@@ -107,7 +112,7 @@ document
 
     const blob =
     new Blob(
-        [output.value],
+        [markdownContent],
         { type:"text/markdown" }
     );
 
