@@ -1,69 +1,101 @@
-<div class="glass-card">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div class="hero">
+<title>MarkItDown</title>
 
-        <h1>MarkItDown</h1>
+<link rel="stylesheet" href="/static/app.css">
+</head>
 
-        <div class="subtitle">
-            by Microsoft
+<body>
+
+<div class="background"></div>
+
+<div class="container">
+
+    <!-- Upload Card -->
+
+    <div class="glass-card">
+
+        <div class="hero">
+            <h1>MarkItDown</h1>
+            <div class="subtitle">
+                by Microsoft
+            </div>
+        </div>
+
+        <div id="dropzone">
+
+            <div class="drop-icon">
+                ⬆
+            </div>
+
+            <div class="drop-title">
+                Upload Document
+            </div>
+
+            <div class="drop-subtitle">
+                Drag & Drop or Tap to Browse
+            </div>
+
+            <input id="fileInput" type="file">
+
+            <div id="selectedFile">
+                No file selected
+            </div>
+
+            <div id="fileMeta"></div>
+
+        </div>
+
+        <button id="convertBtn">
+            Convert to Markdown
+        </button>
+
+        <div id="progressContainer">
+
+            <div class="progress-track">
+                <div id="progressBar"></div>
+            </div>
+
         </div>
 
     </div>
 
-    <div id="dropzone">
+    <!-- Output Card -->
 
-        <div class="drop-icon">
-            ⬆
+    <div class="glass-card">
+
+        <div class="result-header">
+
+            <h2>Markdown Output</h2>
+
+            <div class="actions">
+
+                <button id="copyBtn">
+                    Copy
+                </button>
+
+                <button id="downloadBtn">
+                    Download .md
+                </button>
+
+            </div>
+
         </div>
 
-        <div class="drop-title">
-            Upload Document
-        </div>
-
-        <input id="fileInput" type="file">
-
-        <div id="selectedFile">
-            No file selected
-        </div>
-
-        <div id="fileMeta"></div>
-
-    </div>
-
-    <button id="convertBtn">
-        Convert
-    </button>
-
-    <div id="progressContainer">
-
-        <div class="progress-track">
-            <div id="progressBar"></div>
-        </div>
+        <textarea
+            id="output"
+            placeholder="Converted markdown will appear here..."
+        ></textarea>
 
     </div>
 
 </div>
 
-<div class="glass-card">
+<script src="/static/app.js"></script>
 
-    <div class="result-header">
-
-        <h2>Markdown Output</h2>
-
-        <div class="actions">
-
-            <button id="copyBtn">
-                Copy
-            </button>
-
-            <button id="downloadBtn">
-                Download .md
-            </button>
-
-        </div>
-
-    </div>
-
-    <textarea id="output"></textarea>
-
-</div>
+</body>
+</html>
