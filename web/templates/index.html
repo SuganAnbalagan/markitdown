@@ -18,17 +18,38 @@
 
     <div class="glass-card">
 
-        <h1>MarkItDown</h1>
+        <div class="hero">
 
-        <p>
-            Convert documents into Markdown.
-        </p>
+            <h1>MarkItDown</h1>
+
+            <p>
+                Convert documents into Markdown
+            </p>
+
+        </div>
 
         <div id="dropzone">
+
+            <div class="drop-icon">
+                ⬆️
+            </div>
+
+            <div class="drop-title">
+                Drag & Drop File
+            </div>
+
+            <div class="drop-subtitle">
+                or click below
+            </div>
+
             <input id="fileInput" type="file">
-            <div class="filename" id="selectedFile">
+
+            <div id="selectedFile" class="filename">
                 No file selected
             </div>
+
+            <div id="fileMeta"></div>
+
         </div>
 
         <button id="convertBtn">
@@ -51,6 +72,16 @@
                 </span>
             </div>
 
+            <div class="progress-row">
+                <span id="speedText">
+                    —
+                </span>
+
+                <span id="timerText">
+                    0s
+                </span>
+            </div>
+
         </div>
 
     </div>
@@ -61,16 +92,34 @@
 
             <h2>Markdown Output</h2>
 
-            <button id="copyBtn">
-                Copy
-            </button>
+            <div>
+
+                <button id="copyBtn">
+                    Copy
+                </button>
+
+                <button id="downloadBtn">
+                    Download .md
+                </button>
+
+            </div>
 
         </div>
 
         <textarea
             id="output"
-            placeholder="Converted markdown will appear here..."
+            placeholder="Converted markdown appears here..."
         ></textarea>
+
+    </div>
+
+    <div class="glass-card">
+
+        <h2>
+            Recent Conversions
+        </h2>
+
+        <div id="history"></div>
 
     </div>
 
